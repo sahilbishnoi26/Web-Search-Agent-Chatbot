@@ -57,8 +57,8 @@ streamlit run frontend.py
 ```
 - Open the Streamlit UI in your browser to interact with the chatbot.
 
-![alt text]()
-![alt text]()
+![alt text](https://github.com/sahilbishnoi26/Web-Search-Agent-Chatbot/blob/main/pic1.png)
+![alt text](https://github.com/sahilbishnoi26/Web-Search-Agent-Chatbot/blob/main/pic2.png)
 
 ## Troubleshooting
 
