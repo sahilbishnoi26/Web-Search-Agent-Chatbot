@@ -2,94 +2,75 @@
 An AI chatbot built using LangGraph, FastAPI, Tavily, and Streamlit, where users can define the agent's behavior through a prompt. The chatbot answers queries using large language models (LLMs) and integrated web search for real-time, context-aware responses.
 
 ## Features
-- Support for multiple AI providers: Groq and OpenAI.
-- Dynamic model selection with Groq and OpenAI language models.
-- User-defined system prompts for tailored AI behavior.
-- Integration of a web search tool for retrieval-augmented responses.
-- User-friendly Streamlit interface for seamless interaction.
-- Backend API built with FastAPI for scalable communication.
+- Supports Groq and OpenAI models.
+- Allows users to define custom system prompts.
+- Optional integration with Tavily Search for web results.
+- User-friendly Streamlit interface.
+- FastAPI backend for request processing and API management.
 
 ## Technologies Used
-- **LangGraph** for AI agent setup.
-- **FastAPI** for backend API.
-- **Streamlit** for the frontend interface.
-- **Pydantic** for request validation.
-- **Tavily Search Results** for retrieval-augmented responses.
+- LangChain: Handles integrations with Groq and OpenAI models.
+- Streamlit: Provides the frontend UI for users to interact with the chatbot.
+- FastAPI: Manages backend communication and serves as the API.
+- Pydantic: Validates input data from the frontend.
+- Tavily Search: Adds optional web search functionality for enhanced responses.
 
 ## Installation
 
-### 1. Clone the Repository
-```bash
+### Clone the repository
+```
 git clone https://github.com/yourusername/ai-chatbot-agents.git
 cd ai-chatbot-agents
 ```
 
-### 2. Create and Activate Virtual Environment
-#### On Windows:
-```bash
-python -m venv env
-env\Scripts\activate
+### Install dependencies
+1. Create and activate a virtual environment:
 ```
-#### On macOS/Linux:
-```bash
-python3 -m venv env
-source env/bin/activate
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
-
-### 3. Install Dependencies
-```bash
+2. Install required packages:
+```
 pip install -r requirements.txt
 ```
 
+### Setup API Keys
+1. Create a `.env` file in the project root:
+```
+GROQ_API_KEY=your_groq_api_key
+TAVILY_API_KEY=your_tavily_api_key
+OPENAI_API_KEY=your_openai_api_key
+```
+2. Save the file.
+
 ## Usage
 
-### 1. Start the Backend Server
-Run the following command to launch the FastAPI server:
-```bash
+### Run the backend
+```
 python backend.py
 ```
+- The FastAPI server will be available at `http://127.0.0.1:9999`.
 
-### 2. Launch the Frontend Interface
-Start the Streamlit interface:
-```bash
+### Run the frontend
+```
 streamlit run frontend.py
 ```
+- Open the Streamlit UI in your browser to interact with the chatbot.
 
-### 3. Interact with the AI Agent
-- Open the Streamlit interface in your browser (usually at `http://localhost:8501`).
-- Define the system prompt, select a provider and model, and input your query.
-- Click "Ask Agent!" to receive a response.
+![alt text]()
+![alt text]()
 
 ## Troubleshooting
-### Common Issues and Solutions
 
-1. **Missing API Keys**
-   - Ensure `GROQ_API_KEY`, `TAVILY_API_KEY`, and `OPENAI_API_KEY` are set in your environment variables.
-   - Use a `.env` file or export the keys manually:
-     ```bash
-     export GROQ_API_KEY=your_key
-     export TAVILY_API_KEY=your_key
-     export OPENAI_API_KEY=your_key
-     ```
+### Common Issues
+1. Invalid Model Name:
+   - Ensure the selected model name matches one of the `ALLOWED_MODEL_NAMES` in `backend.py`.
 
-2. **Port Conflicts**
-   - If `127.0.0.1:```9` is unavailable, change the port in `backend.py`:
-     ```python
-     uvicorn.run(app, host="127.0.0.1", port=YOUR_PORT)
-     ```
+2. Environment Variables Not Found:
+   - Ensure the `.env` file is correctly configured and located in the project root.
 
-3. **Dependencies Not Installed**
-   - Ensure the virtual environment is activated and run:
-     ```bash
-     pip install -r requirements.txt
-     ```
+3. Backend Server Not Running:
+   - Verify that `backend.py` is running before interacting with the UI.
 
-4. **Frontend Not Connecting to Backend**
-   - Verify the backend is running at `http://127.0.0.1:```9`.
-   - Check the `API_URL` in `frontend.py` matches the backend URL.
-
-5. **Model Selection Error**
-   - Ensure the model name selected is in the allowed list:
-     ```python
-     ALLOWED_MODEL_NAMES=["llama3-70b-8192", "mixtral-8x7b-32768", "llama-3.3-70b-versatile", "gpt-4o-mini"]
-     ```
+## Notes
+- API documentation is available at `http://127.0.0.1:```9/docs`.
