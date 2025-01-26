@@ -19,8 +19,8 @@ An AI chatbot built using LangGraph, FastAPI, Tavily, and Streamlit, where users
 
 ### Clone the repository
 ```
-git clone https://github.com/yourusername/ai-chatbot-agents.git
-cd ai-chatbot-agents
+git clone https://github.com/yourusername/Web-Search-Agent-Chatbot.git
+cd Web-Search-Agent-Chatbot
 ```
 
 ### Install dependencies
